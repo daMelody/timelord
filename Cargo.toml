@@ -8,3 +8,5 @@ edition = "2018"
 
 [dependencies]
 clap = "3.0.0-beta.1"
+anyhow = "1.0.31"
+notifica = "1.0.2"
