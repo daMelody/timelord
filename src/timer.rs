@@ -33,9 +33,13 @@ impl Timer {
             self.describe_cycle(self.cycles - cycle);
             for flow in 0..self.flow {
                 self.do_work(flow + 1); // need to adjust for zero-th index
-                self.do_rest();
+                if flow < self.flow { // don't do rest time if it's last flow period
+                    self.do_rest();
+                    }
             }
+            if cycle < self.cycles { // don't do break time if it's last cycle
             self.do_break_time();
+            }
         }
         notifica::notify(
             "TIMELORD",
